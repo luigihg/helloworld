@@ -1,6 +1,5 @@
 options:
-  logging: CLOUD_LOGGING_ONLY  
-build:
+  logging: CLOUD_LOGGING_ONLY
   service_account: gitlab-cloud-build@still-sensor-449617-n7.iam.gserviceaccount.com
   logs_bucket: gs://cloud-build-logs-mi-proyecto
 steps:
