@@ -1,3 +1,7 @@
+options:
+  logging: CLOUD_LOGGING_ONLY  # or NONE if you don't want logs in the bucket
+  service_account: gitlab-cloud-build@still-sensor-449617-n7.iam.gserviceaccount.com
+  logs_bucket: gs://cloud-build-logs-my-project # Replace with your bucket name
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/still-sensor-449617-n7/cloud-run-source-deploy', '.']
