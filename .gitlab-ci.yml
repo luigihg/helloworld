@@ -1,0 +1,5 @@
+build:
+  image: google/cloud-sdk:latest
+  script:
+    - gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
+    - gcloud builds submit --config cloudbuild.yaml .
