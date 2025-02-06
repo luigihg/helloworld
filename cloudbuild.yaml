@@ -1,11 +1,4 @@
-options:
-  logging: CLOUD_LOGGING_ONLY  
-build:
-   logs_bucket: gs://cloud-build-logs-mi-proyecto
 steps:
-- name: 'maven:3.8.6-jdk-17'
-  entrypoint: 'mvn'
-  args: ['package']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/still-sensor-449617-n7/cloud-run-source-deploy', '.']
 images: ['gcr.io/still-sensor-449617-n7/cloud-run-source-deploy']
