@@ -1,7 +1,12 @@
 steps:
 - name: 'maven:3.8.6-jdk-17'
-  entrypoint: 'mvn'
-  args: ['package']
+  entrypoint: 'bash' # Change entrypoint to bash
+  args:
+  - '-c'
+  - |
+    chmod +x mvnw  # Grant execute permission to mvnw
+  ./mvnw package  # Use./mvnw to execute the wrapper
+
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/still-sensor-449617-n7/cloud-run-source-deploy', '.']
 images: ['gcr.io/still-sensor-449617-n7/cloud-run-source-deploy']
