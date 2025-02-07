@@ -1,10 +1,7 @@
 steps:
-- name: 'gcr.io/cloud-builders/gcloud'
-  entrypoint: 'bash'
-  args: ['-c', 'chmod +x mvnw']
 - name: 'maven:3.8.6-jdk-17'
-  entrypoint: './mvnw'
-  args: ['clean', 'package', '--batch-mode', '-DskipTests', '-Dhttp.keepAlive=false', '-f=pom.xml', '--quiet']
+  entrypoint: 'mvn'
+  args: ['package']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/still-sensor-449617-n7/cloud-run-source-deploy', '.']
 images: ['gcr.io/still-sensor-449617-n7/cloud-run-source-deploy']
