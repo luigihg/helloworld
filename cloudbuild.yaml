@@ -1,0 +1,9 @@
+steps:
+- name: 'maven:3.8.6-jdk-17'
+  entrypoint: 'mvn'
+  args: ['package']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us-east1-docker.pkg.dev/still-sensor-449617-n7/cloud-run-source-deploy/helloworld:v1', '.']
+images: ['us-east1-docker.pkg.dev/still-sensor-449617-n7/cloud-run-source-deploy/helloworld:v1']
+options:
+  logging: CLOUD_LOGGING_ONLY
